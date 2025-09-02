@@ -1,5 +1,8 @@
 package com.sleepy.bankmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,12 +12,33 @@ import java.util.Date;
 @Entity
 @Table
 public class Card {
-@Id
+
+    @Id
+
+    @Column(name = "cardNumber", nullable = false)
+    @JsonProperty("شماره کارت")
     private String cardNumber;
+
+    @Column(name = "cardType", nullable = false)
+    @JsonProperty("نوع کارت")
     private CardType cardType;
+
+    @Column(name = "cvv", nullable = false)
+    @JsonProperty("cvv")
     private String cvv;
+
+    @Column(name = "expiryDate", nullable = false)
+    @JsonProperty("تاریخ انقضا")
     private Date expiryDate;
-    private boolean isActive;
+
+    @Column(name = "cardholderName", nullable = false)
+    @JsonProperty("نام صاحب کارت")
     private String cardholderName;
+
+    @Column(name = "linkedAccountNumber", nullable = false)
+    @JsonProperty("شماره اکانت وصل شده")
     private String linkedAccountNumber;
+
+
+    private boolean isActive;
 }
