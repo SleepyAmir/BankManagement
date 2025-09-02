@@ -1,6 +1,10 @@
 package com.sleepy.bankmanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +13,12 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
-@Entity
-@Table
+@SuperBuilder
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity(name = "cardEntity")
+@Table(name = "card")
 public class Card {
 
     @Id
