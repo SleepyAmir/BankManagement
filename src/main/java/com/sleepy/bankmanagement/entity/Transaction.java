@@ -35,11 +35,11 @@ public class Transaction {
     @JsonProperty("تاریخ و زمان")
     private Date timestamp;
 
-    @Column(name = "sourceAccountNumber") // Can be null for deposits
+    @Column(name = "sourceAccountNumber")
     @JsonProperty("شماره حساب مبدا")
     private String sourceAccountNumber;
 
-    @Column(name = "destinationAccountNumber") // Can be null for withdrawals
+    @Column(name = "destinationAccountNumber")
     @JsonProperty("شماره حساب مقصد")
     private String destinationAccountNumber;
 
