@@ -14,7 +14,6 @@ public class CardService {
 
     public Card edit(Card card) throws Exception {
         try (CardRepository cardRepository = new CardRepository()) {
-            // Logic must be done within the try block
             if (cardRepository.findById(card.getCardNumber()) != null) {
                 return cardRepository.edit(card);
             } else {

@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh; }
-        .main-card { background: white; border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 2rem;
-        }
-        .card-header { background: linear-gradient(135deg, #16a34a, #22c55e); color: white; padding: 1.5rem; border: none;
-        }
-        .card-header h4 { margin: 0; font-weight: 600;
-        }
-        .form-section { padding: 2rem;
-        }
-        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;
-        }
-        .table-container { background: white; border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .table thead th { background: #f8fafc;
-            border: none; }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .main-card { background: white; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 2rem; }
+        .card-header { background: linear-gradient(135deg, #16a34a, #22c55e); color: white; padding: 1.5rem; border: none; }
+        .card-header h4 { margin: 0; font-weight: 600; }
+        .form-section { padding: 2rem; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .table-container { background: white; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .table thead th { background: #f8fafc; border: none; }
     </style>
 </head>
 <body>
@@ -110,7 +101,7 @@
                 </thead>
                 <tbody>
                 <c:forEach var="account" items="${sessionScope.accountList}">
-                    <tr class="align-middle">
+                    <tr>
                         <td>${account.accountNumber}</td>
                         <td>${account.customerId}</td>
                         <td>${account.balance}</td>
