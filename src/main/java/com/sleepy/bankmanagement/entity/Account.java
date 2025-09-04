@@ -16,8 +16,9 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+
 @Table(name = "account")
-public abstract class Account {
+public  class Account {
 
     @Id
     @Column(name = "accountNumber", nullable = false, unique = true)
