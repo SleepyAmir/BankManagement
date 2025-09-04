@@ -13,7 +13,6 @@ public class CardRepository implements AutoCloseable {
     private final EntityManager entityManager;
 
     public CardRepository() {
-        // Creates a new EntityManager for each repository instance
         this.entityManager = JpaProvider.getProvider().getEntityManager();
     }
 
@@ -35,7 +34,6 @@ public class CardRepository implements AutoCloseable {
 
     public Card deleteById(String id) {
         EntityTransaction transaction = entityManager.getTransaction();
-        // First, find the entity to be deleted
         Card cardToDelete = findById(id);
 
         if (cardToDelete != null) {
@@ -48,19 +46,16 @@ public class CardRepository implements AutoCloseable {
     }
 
     public Card findById(String id) {
-        // A simple find does not require a transaction
         return entityManager.find(Card.class, id);
     }
 
     public List<Card> findAll() {
-        // Use TypedQuery for better type safety
         TypedQuery<Card> query = entityManager.createQuery("SELECT c FROM cardEntity c", Card.class);
         return query.getResultList();
     }
 
     @Override
     public void close() {
-        // The correct implementation is to close the EntityManager
         if (entityManager != null && entityManager.isOpen()) {
             entityManager.close();
         }
