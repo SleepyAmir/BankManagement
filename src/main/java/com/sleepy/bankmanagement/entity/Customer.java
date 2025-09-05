@@ -51,9 +51,9 @@ public class Customer {
     @JsonProperty("فعال است")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany
     private List<Account> accounts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany
     private List<Loan> loans = new ArrayList<>();
 }
