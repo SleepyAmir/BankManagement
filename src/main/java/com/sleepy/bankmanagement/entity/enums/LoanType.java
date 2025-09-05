@@ -1,4 +1,4 @@
-package com.sleepy.bankmanagement.entity;
+package com.sleepy.bankmanagement.entity.enums;
 
 public enum LoanType {
     PERSONAL,

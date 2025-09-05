@@ -1,6 +1,6 @@
 package com.sleepy.bankmanagement.entity;
 
-import com.sleepy.bankmanagement.service.CardService;
+import com.sleepy.bankmanagement.entity.enums.CardType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

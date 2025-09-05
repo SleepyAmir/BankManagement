@@ -1,8 +1,8 @@
 package com.sleepy.bankmanagement.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sleepy.bankmanagement.entity.enums.AccountStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

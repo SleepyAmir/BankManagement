@@ -1,6 +1,7 @@
 package com.sleepy.bankmanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sleepy.bankmanagement.entity.enums.CardType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
