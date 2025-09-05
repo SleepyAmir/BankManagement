@@ -22,8 +22,8 @@ import java.util.Date;
 public class Card  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_seq")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
 
     @Column(name = "cardNumber", nullable = false, unique = true, length = 20)
     @JsonProperty("شماره کارت")
