@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Map;
 
 public class CrudRepository<T, I> implements AutoCloseable {
     private final EntityManager entityManager;
@@ -48,6 +49,13 @@ public class CrudRepository<T, I> implements AutoCloseable {
     public T findById(I id, Class<T> tClass) {
         return entityManager.find(tClass, id);
     }
+
+//    public T findBy(String namedQueryName, Map<String, Object> parameters, Class<T> tClass>) {
+//        return entityManager.find(tClass, id);
+//    }
+
+//   ("FindByCardNumber", {"cardNumber":"1234"})
+//   ("FindByCardNumberAndHolderName", {"cardNumber":"1234", "holderName":"ali"})
 
 
     @Override

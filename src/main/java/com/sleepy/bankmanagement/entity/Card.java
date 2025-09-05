@@ -19,7 +19,13 @@ import java.util.Date;
 
 @Entity(name = "cardEntity")
 @Table(name = "card")
-public class Card  {
+@NamedQueries(
+        {
+                @NamedQuery(name = "FindByCardNumber", query = "select c from cardEntity c where c.cardNumber=:cardNumber"),
+                @NamedQuery(name = "FindByCardNumberAndHolderName", query = "select c from cardEntity c where c.cardNumber=:cardNumber and c.cardholderName=:holderName")
+        }
+)
+public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
