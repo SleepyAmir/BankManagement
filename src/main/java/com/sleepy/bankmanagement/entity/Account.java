@@ -45,6 +45,6 @@ public abstract class Account {
     @JsonProperty("وضعیت")
     private AccountStatus status;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany
     private List<Card> cards = new ArrayList<>();
 }
