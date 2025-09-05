@@ -67,4 +67,10 @@ public class Loan {
     @Column(name = "approvedByEmployeeId")
     @JsonProperty("تایید شده توسط کارمند")
     private String approvedByEmployeeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employee approvedByEmployee;
 }

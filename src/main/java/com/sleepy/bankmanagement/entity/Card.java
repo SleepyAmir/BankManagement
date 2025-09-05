@@ -18,11 +18,10 @@ import java.util.Date;
 
 @Entity(name = "cardEntity")
 @Table(name = "card")
-public class Card {
+public class Card  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_seq")
-    @SequenceGenerator(name = "card_seq", sequenceName = "CARD_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(name = "cardNumber", nullable = false, unique = true, length = 20)
@@ -53,4 +52,8 @@ public class Card {
 
     @Column(name = "isActive")
     private boolean isActive;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Account account;
 }

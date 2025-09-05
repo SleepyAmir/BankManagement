@@ -1,6 +1,7 @@
 package com.sleepy.bankmanagement.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,9 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @SuperBuilder
@@ -18,7 +21,7 @@ import java.util.Date;
 @Entity
 
 @Table(name = "account")
-public  class Account {
+public abstract class Account {
 
     @Id
     @Column(name = "accountNumber", nullable = false, unique = true)
@@ -42,4 +45,6 @@ public  class Account {
     @JsonProperty("وضعیت")
     private AccountStatus status;
 
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Card> cards = new ArrayList<>();
 }

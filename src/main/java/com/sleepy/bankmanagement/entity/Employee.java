@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuperBuilder
 @NoArgsConstructor
@@ -44,4 +46,12 @@ public class Employee {
 
     @JsonProperty("فعال است")
     private boolean isActive;
+
+
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Transaction> processedTransactions = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Loan> approvedLoans = new ArrayList<>();
 }
