@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @SuperBuilder
@@ -60,11 +61,11 @@ public class Loan {
 
     @Column(name = "startDate")
     @JsonProperty("تاریخ شروع")
-    private Date startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "nextPaymentDate")
     @JsonProperty("تاریخ قسط بعدی")
-    private Date nextPaymentDate;
+    private LocalDateTime nextPaymentDate;
 
     @Column(name = "approvedByEmployeeId")
     @JsonProperty("تایید شده توسط کارمند")

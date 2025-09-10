@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @SuperBuilder
@@ -35,7 +36,7 @@ public class Transaction {
 
     @Column(name = "timestamp", nullable = false)
     @JsonProperty("تاریخ و زمان")
-    private Date timestamp;
+    private LocalDateTime timestamp;
 
     @Column(name = "sourceAccountNumber")
     @JsonProperty("شماره حساب مبدا")

@@ -16,34 +16,34 @@ public class EmployeeRepository extends CrudRepository<Employee, Integer> implem
         this.entityManager = JpaProvider.getProvider().getEntityManager();
     }
 
-    public Employee save(Employee employee) {
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.persist(employee);
-        transaction.commit();
-        return employee;
-    }
-
-    public Employee edit(Employee employee) {
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        Employee updatedEmployee = entityManager.merge(employee);
-        transaction.commit();
-        return updatedEmployee;
-    }
-
-    public Employee deleteById(String id) {
-        EntityTransaction transaction = entityManager.getTransaction();
-        Employee employeeToDelete = findById(id);
-
-        if (employeeToDelete != null) {
-            transaction.begin();
-            entityManager.remove(employeeToDelete);
-            transaction.commit();
-        }
-
-        return employeeToDelete;
-    }
+//    public Employee save(Employee employee) {
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        entityManager.persist(employee);
+//        transaction.commit();
+//        return employee;
+//    }
+//
+//    public Employee edit(Employee employee) {
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        Employee updatedEmployee = entityManager.merge(employee);
+//        transaction.commit();
+//        return updatedEmployee;
+//    }
+//
+//    public Employee deleteById(String id) {
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        Employee employeeToDelete = findById(id);
+//
+//        if (employeeToDelete != null) {
+//            transaction.begin();
+//            entityManager.remove(employeeToDelete);
+//            transaction.commit();
+//        }
+//
+//        return employeeToDelete;
+//    }
 
     public Employee findById(String id) {
         return entityManager.find(Employee.class, id);

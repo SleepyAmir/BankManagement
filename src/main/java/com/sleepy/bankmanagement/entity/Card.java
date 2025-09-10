@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @SuperBuilder
@@ -47,7 +48,7 @@ public class Card {
     @Temporal(TemporalType.DATE)
     @Column(name = "expiryDate", nullable = false)
     @JsonProperty("تاریخ انقضا")
-    private Date expiryDate;
+    private LocalDateTime expiryDate;
 
     @Column(name = "cardholderName", nullable = false, length = 100)
     @JsonProperty("نام صاحب کارت")

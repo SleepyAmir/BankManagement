@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,7 +39,7 @@ public class Customer {
 
     @Column(name = "dateOfBirth")
     @JsonProperty("تاریخ تولد")
-    private Date dateOfBirth;
+    private LocalDateTime dateOfBirth;
 
     @Column(name = "phoneNumber")
     @JsonProperty("شماره تلفن")
@@ -46,7 +47,7 @@ public class Customer {
 
     @Column(name = "registrationDate")
     @JsonProperty("تاریخ ثبت نام")
-    private Date registrationDate;
+    private LocalDateTime registrationDate;
 
     @JsonProperty("فعال است")
     private boolean isActive;

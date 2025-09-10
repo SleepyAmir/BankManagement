@@ -9,8 +9,8 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -21,6 +21,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "account")
+@MappedSuperclass
 public abstract class Account {
 
     @Id
@@ -38,7 +39,7 @@ public abstract class Account {
 
     @Column(name = "dateOpened", nullable = false)
     @JsonProperty("تاریخ افتتاح")
-    private Date dateOpened;
+    private LocalDateTime dateOpened;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)

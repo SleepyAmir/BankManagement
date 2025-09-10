@@ -53,7 +53,7 @@ public class CrudRepository<T, I> implements AutoCloseable {
 //    public T findBy(String namedQueryName, Map<String, Object> parameters, Class<T> tClass>) {
 //        return entityManager.find(tClass, id);
 //    }
-
+//
 //   ("FindByCardNumber", {"cardNumber":"1234"})
 //   ("FindByCardNumberAndHolderName", {"cardNumber":"1234", "holderName":"ali"})
 
