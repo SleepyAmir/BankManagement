@@ -18,6 +18,12 @@ import java.util.Date;
 @Setter
 @Entity(name = "loanEntity")
 @Table(name = "loan")
+@NamedQueries(
+        {
+        @NamedQuery(name="FindByLoanId", query = "select c from loanEntity c where c.loanId=:loanId")
+
+        }
+        )
 public class Loan {
 
     @Id

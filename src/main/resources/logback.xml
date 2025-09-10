@@ -1,0 +1,30 @@
+<configuration>
+
+    <!-- Console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Hibernate Connection Management -->
+    <logger name="org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl" level="DEBUG"/>
+    <logger name="org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl" level="TRACE"/>
+    
+    <!-- Hibernate Transaction -->
+    <logger name="org.hibernate.engine.transaction.internal.TransactionImpl" level="TRACE"/>
+    <logger name="org.hibernate.transaction" level="TRACE"/>
+
+    <!-- Hibernate SQL and Bind Parameters -->
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+
+    <!-- Optional: Hibernate Cache / Lazy Loading debug -->
+    <logger name="org.hibernate.loader.Loader" level="DEBUG"/>
+    <logger name="org.hibernate.persister.entity.AbstractEntityPersister" level="TRACE"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
