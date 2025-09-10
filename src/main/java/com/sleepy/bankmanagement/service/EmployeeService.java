@@ -21,17 +21,17 @@ public class EmployeeService {
             }
         }
     }
-
-    public Employee deleteById(String id) throws Exception {
-        try (EmployeeRepository employeeRepository = new EmployeeRepository()) {
-            Employee employeeToDelete = employeeRepository.findById(id);
-            if (employeeToDelete != null) {
-                return employeeRepository.deleteById(id);
-            } else {
-                throw new Exception("Employee not found");
-            }
-        }
-    }
+//
+//    public Employee deleteById(String id) throws Exception {
+//        try (EmployeeRepository employeeRepository = new EmployeeRepository()) {
+//            Employee employeeToDelete = employeeRepository.findById(id);
+//            if (employeeToDelete != null) {
+//                return employeeRepository.deleteById(id);
+//            } else {
+//                throw new Exception("Employee not found");
+//            }
+//        }
+//    }
 
     public Employee findById(String id) throws Exception {
         try (EmployeeRepository employeeRepository = new EmployeeRepository()) {

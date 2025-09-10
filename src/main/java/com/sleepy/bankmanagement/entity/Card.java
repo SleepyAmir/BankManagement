@@ -45,7 +45,6 @@ public class Card {
     @JsonProperty("cvv")
     private String cvv;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "expiryDate", nullable = false)
     @JsonProperty("تاریخ انقضا")
     private LocalDateTime expiryDate;
