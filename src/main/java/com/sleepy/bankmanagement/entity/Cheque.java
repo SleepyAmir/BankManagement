@@ -8,7 +8,9 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @SuperBuilder
 @NoArgsConstructor
@@ -45,18 +47,15 @@ public class Cheque {
 
     @Column(name = "issueDate", nullable = false)
     @JsonProperty("تاریخ صدور")
-    @Temporal(TemporalType.DATE)
-    private Date issueDate;
+    private LocalDateTime issueDate;
 
     @Column(name = "dueDate")
     @JsonProperty("تاریخ سررسید")
-    @Temporal(TemporalType.DATE)
-    private Date dueDate;
+    private LocalDate dueDate;
 
     @Column(name = "clearanceDate")
     @JsonProperty("تاریخ تسویه")
-    @Temporal(TemporalType.DATE)
-    private Date clearanceDate;
+    private LocalDateTime clearanceDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
@@ -79,15 +78,11 @@ public class Cheque {
     @JsonProperty("پردازش شده توسط کارمند")
     private String processedByEmployeeId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "drawerAccountNumber", referencedColumnName = "accountNumber", insertable = false, updatable = false)
-    private Account drawerAccount;
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clearanceTransactionId")
     private Transaction clearanceTransaction;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "processedByEmployeeId", referencedColumnName = "employeeId", insertable = false, updatable = false)
+    @JoinColumn(name = "processedByEmployeeId", referencedColumnName = "employeeId")
     private Employee processedByEmployee;
 }

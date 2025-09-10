@@ -22,7 +22,7 @@ import java.util.List;
 
 @Table(name = "account")
 @MappedSuperclass
-public abstract class Account {
+public abstract class Account extends Base {
 
     @Id
     @Column(name = "accountNumber", nullable = false, unique = true)
