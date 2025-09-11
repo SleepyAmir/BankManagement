@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-
 @Entity
 @Table(name = "checking_account")
 public class CheckingAccount extends Account {

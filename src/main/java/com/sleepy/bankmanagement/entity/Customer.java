@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @SuperBuilder
@@ -18,7 +17,7 @@ import java.util.List;
 @Setter
 @Entity(name="customerEntity")
 @Table(name = "customer")
-public class Customer {
+public class Customer extends Base {
 
     @Id
     @Column(name = "customerId", nullable = false)
@@ -52,9 +51,9 @@ public class Customer {
     @JsonProperty("فعال است")
     private boolean isActive;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Account> accounts = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Loan> loans = new ArrayList<>();
 }

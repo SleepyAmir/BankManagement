@@ -1,31 +1,27 @@
 package com.sleepy.bankmanagement.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PostLoad;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
 @MappedSuperclass
-public class Base {
+public abstract class Base {
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
+
+    @Column(name = "last_access")
     private LocalDateTime lastAccess;
 
-    @Column(name="deleted")
-    private boolean deleted;
+    @Column(name = "deleted")
+    private boolean deleted = false;
 
     @PrePersist
     public void prePersist() {

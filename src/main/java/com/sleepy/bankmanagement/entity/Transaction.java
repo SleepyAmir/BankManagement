@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity(name = "transactionEntity")
 @Table(name = "transaction")
-public class Transaction {
+public class Transaction extends Base {
 
     @Id
     @Column(name = "transactionId", nullable = false)
@@ -57,4 +57,8 @@ public class Transaction {
     @Column(name = "processedBy")
     @JsonProperty("پردازش شده توسط")
     private String processedBy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "processedBy", referencedColumnName = "employeeId", insertable = false, updatable = false)
+    private Employee processedByEmployee;
 }

@@ -10,23 +10,19 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @SuperBuilder
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-
 @Entity(name = "cardEntity")
 @Table(name = "card")
-@NamedQueries(
-        {
-                @NamedQuery(name = "FindByCardNumber", query = "select c from cardEntity c where c.cardNumber=:cardNumber"),
-                @NamedQuery(name = "FindByCardNumberAndHolderName", query = "select c from cardEntity c where c.cardNumber=:cardNumber and c.cardholderName=:holderName")
-        }
-)
-public class Card {
+@NamedQueries({
+        @NamedQuery(name = "FindByCardNumber", query = "select c from cardEntity c where c.cardNumber=:cardNumber"),
+        @NamedQuery(name = "FindByCardNumberAndHolderName", query = "select c from cardEntity c where c.cardNumber=:cardNumber and c.cardholderName=:holderName")
+})
+public class Card extends Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -60,7 +56,7 @@ public class Card {
     @Column(name = "isActive")
     private boolean isActive;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "linkedAccountNumber", referencedColumnName = "accountNumber", insertable = false, updatable = false)
     private Account account;
 }

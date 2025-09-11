@@ -1,9 +1,7 @@
 package com.sleepy.bankmanagement.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sleepy.bankmanagement.entity.enums.AccountStatus;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,15 +12,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "account")
-@Inheritance(strategy = InheritanceType.JOINED) // Use JOINED strategy
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Account extends Base {
 
     @Id
@@ -47,6 +43,10 @@ public abstract class Account extends Base {
     @JsonProperty("وضعیت")
     private AccountStatus status;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Card> cards = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId", insertable = false, updatable = false)
+    private Customer customer;
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @Entity(name = "employeeEntity")
 @Table(name = "employee")
-public class Employee {
+public class Employee extends Base {
 
     @Id
     @Column(name = "employeeId", nullable = false)
@@ -48,11 +48,12 @@ public class Employee {
     @JsonProperty("فعال است")
     private boolean isActive;
 
-
-
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "processedByEmployee", fetch = FetchType.LAZY)
     private List<Transaction> processedTransactions = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "approvedByEmployee", fetch = FetchType.LAZY)
     private List<Loan> approvedLoans = new ArrayList<>();
+
+    @OneToMany(mappedBy = "processedByEmployee", fetch = FetchType.LAZY)
+    private List<Cheque> processedCheques = new ArrayList<>();
 }

@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @SuperBuilder
 @NoArgsConstructor
@@ -18,13 +17,10 @@ import java.util.Date;
 @Setter
 @Entity(name = "loanEntity")
 @Table(name = "loan")
-@NamedQueries(
-        {
+@NamedQueries({
         @NamedQuery(name="FindByLoanId", query = "select c from loanEntity c where c.loanId=:loanId")
-
-        }
-        )
-public class Loan {
+})
+public class Loan extends Base {
 
     @Id
     @Column(name = "loanId", nullable = false)
@@ -78,8 +74,10 @@ public class Loan {
     private String approvedByEmployeeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId", insertable = false, updatable = false)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "approvedByEmployeeId", referencedColumnName = "employeeId", insertable = false, updatable = false)
     private Employee approvedByEmployee;
 }
