@@ -1,13 +1,17 @@
 package com.sleepy.bankmanagement.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@SuperBuilder
+@NoArgsConstructor
 @MappedSuperclass
 public abstract class Base {
 
